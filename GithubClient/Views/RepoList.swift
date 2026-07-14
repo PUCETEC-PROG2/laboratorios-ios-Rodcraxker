@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct RepoList: View {
+    
+    private var repolist = Repository.sampleData
+    
     var body: some View {
         NavigationStack{
-            VStack{
-                Text("Lista de Repositorios")
+            Group{
+                List(repolist){ repo in
+                    RepoItem(repository: repo)
+                }
             }
             .navigationTitle("Repositorios")
         }
